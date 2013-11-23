@@ -36,9 +36,8 @@ def generic_lookup(request):
             obj = get_obj(request.GET['content_type'], request.GET['object_id'])
             objects.append(obj)
         
-        response = HttpResponse(mimetype='application/json')
-        json.dump(objects, response, ensure_ascii=False)
-        return response
+        output = json.dumps(objects)
+        return HttpResponse(output, mimetype='application/json')
     return HttpResponseNotAllowed(['GET'])
 
 def get_generic_rel_list(request, blacklist=(), whitelist=(), url_params={}):

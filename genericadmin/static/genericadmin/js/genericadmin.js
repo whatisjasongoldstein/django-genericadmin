@@ -134,9 +134,9 @@
             name = id_to_windowname(name);
 
             if (link.href.search(/\?/) >= 0) {
-                href = link.href + '&pop=1';
+                href = link.href + '&_popup=1';
             } else {
-                href = link.href + '?pop=1';
+                href = link.href + '?_popup=1';
             }
             win = window.open(href, name, 'height=500,width=800,resizable=yes,scrollbars=yes');
 
@@ -157,7 +157,7 @@
                     url: that.obj_url,
                     dataType: 'json',
                     data: {
-                        object_id: $(that.object_input).attr('value'),
+                        object_id: $(that.object_input).val(),
                         content_type: that.cID
                     },
                     success: function(data) {
